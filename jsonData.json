@@ -1,4 +1,4 @@
-var jsonObj = [
+[
     {
         "name": "Peo Hi",
         "picture": "https://robohash.org/a",
@@ -7,7 +7,6 @@ var jsonObj = [
         "company": "Roboman Corp",
         "cdesc": "Our company is dedicated to creating high quality robots to meet our customer's needs."
     },
-
     {
         "name": "Richard Dixie",
         "picture": "https://robohash.org/b",
@@ -16,7 +15,6 @@ var jsonObj = [
         "company": "Nixon",
         "cdesc": "Nixon is dedicated to supporting your party in the back."
     },
-
     {
         "name": "Michelle Wats",
         "picture": "https://robohash.org/c",
@@ -25,7 +23,6 @@ var jsonObj = [
         "company": "Clothestop",
         "cdesc": "Clothestop is a company dedicated to creating custom clothing to the customer's needs."
     },
-
     {
         "name": "Megan Fox",
         "picture": "https://robohash.org/d",
@@ -34,7 +31,6 @@ var jsonObj = [
         "company": "Foxy Wear",
         "cdesc": "Foxy Wear is my clothes line."
     },
-
     {
         "name": "Nickel Dime",
         "picture": "https://robohash.org/e",
@@ -43,5 +39,4 @@ var jsonObj = [
         "company": "Moneyman",
         "cdesc": "Moneyman sells, trades, and buys rare coins."
     }
-
 ]
