@@ -1,7 +1,21 @@
 //File location of the json file
 var fileLocation = "jsonData.json";
 
+function applyHoverCSS()
+{
+	var css = 'tbody tr:hover{ background-color: #fff2e6 }';
+	var style = document.createElement('style');
 
+	if (style.styleSheet) {
+		style.styleSheet.cssText = css;
+	} 
+	else 
+	{
+		style.appendChild(document.createTextNode(css));
+	}
+
+	document.getElementById('tbody')[0].appendChild(style);
+}
 
 
 
@@ -16,13 +30,14 @@ function createTable(jsonObj)
     var row_data = "";
     for(var i = 0; i < jsonObj.length; i++)
     {
-		row_data ='<tr>' +
-		'<td id=\'' + jsonObj[i].company + '\'' + 'onclick=\'search(this.id)\'>' + jsonObj[i].name + '</td>' +
+		row_data ='<tr id=\'' + jsonObj[i].company + '\'' + 'onclick=\'search(this.id)\' style=\'hover\'>' +
+		'<td>' + jsonObj[i].name + '</td>' +
 		'<td>' + jsonObj[i].company + '</td>' +
 		'<td>' + jsonObj[i].email + '</td>' +
 		'</tr>';
 		$("#tbody").append(row_data);
     }
+	applyHoverCSS();
 }
 
 //Assist function for createTable() to make the table headers for searching
@@ -38,14 +53,16 @@ function createTableHeaders()
 //Used to bring back the base table code to switch back from displaying an alumni
 function recreateBase()
 {
-	var base = "<table class=\"table\" id=\"alumniTable\">" +
-					"<thead class=\"thead-dark\">" +
-						"<tr id = \"tHeader\">" +
-                        "</tr>" +
-					"</thead>" +
+	var base = "<div style=\"padding-top:10px;padding-bottom:10px;\">" +
+					"<table class=\"table\" id=\"alumniTable\">" +
+						"<thead style=\"background-color:#F4B540;color:white;\">" +
+							"<tr id = \"tHeader\">" +
+							"</tr>" +
+						"</thead>" +
 						"<tbody id=\"tbody\">" +
                         "</tbody>" +
-				"</table>"
+					"</table>" +
+				"</div>"
 	document.getElementById("divTable").innerHTML = base;
 }
 
@@ -80,16 +97,32 @@ function getCreateJSONAlumniTable(fileLocation, searchCompany)
 //Prepares the table for input of alumni data
 function createAlumniTableBase()
 {
-	var base = "<div class=\"container text-left\">" +
+	var base = "<div style=\"border:2px solid #ffcc66;border-radius:5px;margin-top:10px;margin-bottom:10px;padding-top:10px;padding-bottom:10px;\" class=\"container text-left\">" +
 					"<div class=\"row\">" +
-						"<div class=\"col-md-3\" id=\"alumniPic\">picturehere</div>" +
-						"<div class=\"col-md-9 text-center\" id=\"alumniName\">nameHere</div>" +
+						"<div class=\"col-md-12 text-center\" id=\"backBtn\">" +
+							"<button type=\"button\" class=\"btn btn-warning\" style=\"color:white;margin-bottom:10px\" onclick=\"getCreateJSONTable(fileLocation)\">Back</button>" +
+						"</div>" +
+					"</div>" +
+					"<hr/>" +
+					"<div class=\"row\">" +
+						"<div class=\"col-md-12 text-center\">" + "<h5 class=\"text-center\">About Me</h5>" + 
+						"</div>" +
 					"</div>" +
 					"<div class=\"row\">" +
-						"<div class=\"col-md-12\" id=\"alumniDesc\">selfDescHere</div>" +
+						"<div style=\"border: 2px solid #ffcc66;border-radius:5px;margin-left: 10px;\" class=\"col-sm-3\" id=\"alumniPic\">picturehere</div>" +
+						"<div style=\"padding:20px;font-weight:bold;\" class=\"col-sm-9\" id=\"alumniName\">nameHere</div>" +
 					"</div>" +
 					"<div class=\"row\">" +
-						"<div class=\"col-md-12\" id=\"alumniCompName\">companyNameHere</div>" +
+						"<div class=\"col-md-12 \" id=\"alumniDesc\">selfDescHere</div>" +
+					"</div>" +
+					"<hr/>" +
+					"<div class=\"row\">" +
+						"<div class=\"col-md-12 text-center\">" + "<h5 class=\"text-center\">My Company</h5>" + 
+						"</div>" +
+					"</div>" +
+					"<div class=\"row\">" +
+						"<div style=\"border: 2px solid #ffcc66;border-radius:5px;margin-left: 10px;\" class=\"col-sm-3\" id=\"alumniCompPic\">picturehere</div>" +
+						"<div style=\"padding:30px;font-weight:bold;\" class=\"col-sm-9\" id=\"alumniCompName\">companyNameHere</div>" +
 					"</div>" +
 					"<div class=\"row\">" +
 						"<div class=\"col-md-12\" id=\"alumniCompDesc\">companyDescriptionHere</div>" +
@@ -105,6 +138,7 @@ function fillAlumniTable(jsonObj, searchCompany)
 	var email = "";
 	var selfDesc = "";
 	var compName = "";
+	var compLogo = "";
 	var compDesc = "";
 	
     for(var i = 0; i < jsonObj.length; i++)
@@ -113,17 +147,19 @@ function fillAlumniTable(jsonObj, searchCompany)
 		{
 			name = jsonObj[i].name;
 			picture = jsonObj[i].picture;
-			//email = jsonObject[i].email;
+			email = utf8.encode(jsonObj[i].email);
 			selfDesc = jsonObj[i].aboutme;
 			compName = jsonObj[i].company;
+			compLogo = jsonObj[i].clogo;
 			compDesc = jsonObj[i].cdesc;
 			
 		}	
     }
-	document.getElementById("alumniPic").innerHTML = "<img height=\"100\" width=\"100\" src=" + picture + "</img>";
-	document.getElementById("alumniName").innerHTML = name;
+	document.getElementById("alumniPic").innerHTML = "<img height=\"100\" width=\"100\" src=\"" + picture + "\"/>";
+	document.getElementById("alumniName").innerHTML = name + "<br/>" + email;
 	document.getElementById("alumniDesc").innerHTML = selfDesc;
 	document.getElementById("alumniCompName").innerHTML = compName;
+	document.getElementById("alumniCompPic").innerHTML = "<img height=\"100\" width=\"100\" src=\"" + compLogo + "\"/>";
 	document.getElementById("alumniCompDesc").innerHTML = compDesc;
 }
 
@@ -132,10 +168,6 @@ function search(searchCompany)
 	clearTable();
 	getCreateJSONAlumniTable(fileLocation, searchCompany);
 }
-
-
-
-
 
 function clearTable()
 {
@@ -204,8 +236,4 @@ function sortTable() {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Creates the jsonObj to read from
-//getCreateJSON(fileLocation);
 getCreateJSONTable(fileLocation);
-
-
-//var table = $("<table/>").attr("id", "mytable");

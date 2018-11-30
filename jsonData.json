@@ -5,7 +5,8 @@
         "email": "peohi@email.com",
         "aboutme": "Ever since I was small, I was interested in robots.",
         "company": "Roboman Corp",
-        "cdesc": "Our company is dedicated to creating high quality robots to meet our customer's needs."
+		"clogo": "images/alumniLogo/dwul.png",
+        "cdesc": "Our company is dedicated to creating high quality robots to meet our customer's needsOur company is dedicated to creating high quality robots to meet our customer's needsOur company is dedicated to creating high quality robots to meet our customer's needsOur company is dedicated to creating high quality robots to meet our customer's needsOur company is dedicated to creating high quality robots to meet our customer's needsOur company is dedicated to creating high quality robots to meet our customer's needsOur company is dedicated to creating high quality robots to meet our customer's needsOur company is dedicated to creating high quality robots to meet our customer's needsOur company is dedicated to creating high quality robots to meet our customer's needs."
     },
     {
         "name": "Richard Dixie",
@@ -13,6 +14,7 @@
         "email": "richdix@email.com",
         "aboutme": "Hi, I'm Richard Dixie and I attended Groundswell to create my own company Nixon.",
         "company": "Nixon",
+		"clogo": "images/alumniLogo/dwul.png",
         "cdesc": "Nixon is dedicated to supporting your party in the back."
     },
     {
@@ -21,6 +23,7 @@
         "email": "michwats@email.com",
         "aboutme": "I create beautiful clothes.",
         "company": "Clothestop",
+		"clogo": "images/alumniLogo/dwul.png",
         "cdesc": "Clothestop is a company dedicated to creating custom clothing to the customer's needs."
     },
     {
@@ -29,6 +32,7 @@
         "email": "megafox@email.com",
         "aboutme": "I sing songs and am in movies.",
         "company": "Foxy Wear",
+		"clogo": "images/alumniLogo/dwul.png",
         "cdesc": "Foxy Wear is my clothes line."
     },
     {
@@ -37,6 +41,7 @@
         "email": "nickdime@email.com",
         "aboutme": "I collect many coins so I decided to create a place where people can sell and buy coins.",
         "company": "Moneyman",
+		"clogo": "images/alumniLogo/dwul.png",
         "cdesc": "Moneyman sells, trades, and buys rare coins."
     }
 ]
