@@ -14,7 +14,7 @@ function applyHoverCSS()
 		style.appendChild(document.createTextNode(css));
 	}
 
-	document.getElementById('tbody')[0].appendChild(style);
+	document.getElementsByTagName('tbody')[0].appendChild(style);
 }
 
 
