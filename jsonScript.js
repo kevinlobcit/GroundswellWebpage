@@ -109,8 +109,8 @@ function createAlumniTableBase()
 						"</div>" +
 					"</div>" +
 					"<div class=\"row\">" +
-						"<div style=\"border: 2px solid #ffcc66;border-radius:5px;margin-left: 10px;\" class=\"col-sm-3\" id=\"alumniPic\">picturehere</div>" +
-						"<div style=\"padding:20px;font-weight:bold;\" class=\"col-sm-9\" id=\"alumniName\">nameHere</div>" +
+						"<div style=\"border: 2px solid #ffcc66;border-radius:5px;margin-left: 10px;\" class=\"col-xs-3\" id=\"alumniPic\">picturehere</div>" +
+						"<div style=\"padding:20px;font-weight:bold;\" class=\"col-xs-9\" id=\"alumniName\">nameHere</div>" +
 					"</div>" +
 					"<div class=\"row\">" +
 						"<div class=\"col-md-12 \" id=\"alumniDesc\">selfDescHere</div>" +
@@ -121,8 +121,8 @@ function createAlumniTableBase()
 						"</div>" +
 					"</div>" +
 					"<div class=\"row\">" +
-						"<div style=\"border: 2px solid #ffcc66;border-radius:5px;margin-left: 10px;\" class=\"col-sm-3\" id=\"alumniCompPic\">picturehere</div>" +
-						"<div style=\"padding:30px;font-weight:bold;\" class=\"col-sm-9\" id=\"alumniCompName\">companyNameHere</div>" +
+						"<div style=\"border: 2px solid #ffcc66;border-radius:5px;margin-left: 10px;\" class=\"col-xs-3\" id=\"alumniCompPic\">picturehere</div>" +
+						"<div style=\"padding:30px;font-weight:bold;\" class=\"col-xs-9\" id=\"alumniCompName\">companyNameHere</div>" +
 					"</div>" +
 					"<div class=\"row\">" +
 						"<div class=\"col-md-12\" id=\"alumniCompDesc\">companyDescriptionHere</div>" +
@@ -131,6 +131,7 @@ function createAlumniTableBase()
 	document.getElementById("divTable").innerHTML = base;
 }
 
+//Fills the bootstrap table created by createAlumniTableBase() when given the json object and the name of the company is used to search
 function fillAlumniTable(jsonObj, searchCompany)
 {
     var name = "";
