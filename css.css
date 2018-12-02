@@ -50,6 +50,17 @@ nav {
 	padding:10px;
 }
 
+#pageTitle {
+	position: absolute;
+	width: 100%;
+	top:200px;
+	color:white;
+	text-align: center;
+	z-index: 1;
+	font-size:75px;
+	font-family: "sans-serif";
+}
+
 @keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
@@ -67,13 +78,41 @@ nav {
 }
 
 #contactUsBox {
+	position: relative;
     border-style: solid;
-    border-width: 3px;
+    border-width: 2px;
     border-color: #F4B540;
-	border-radius: 10px;
+	border-radius: 5px;
+	padding-left: 20px;
+	padding-right: 20px;
 	color: #F4B540;
+	transition: 0.15s linear;
+	top: -2px;
 }
 
+#contactUsBox:hover {
+	background-color: #F4B540;
+	color:black;
+}
+
+.dropdown-menu {
+	color: #FFFFFF;
+	background-color: #392A2C;
+	transition: 0.1s linear;
+}
+
+/*
+.dropdown-item:hover {
+	color: #ffffff;
+	background-color: #392A2C;
+}
+*/
+
+.dropdown:hover .dropdown-menu {
+	position: absolute;
+	top: 45px;
+	display: block;
+}
 
 .navbar .contact a{
 	color: black;

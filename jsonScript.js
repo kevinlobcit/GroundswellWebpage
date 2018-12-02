@@ -156,11 +156,11 @@ function fillAlumniTable(jsonObj, searchCompany)
 			
 		}	
     }
-	document.getElementById("alumniPic").innerHTML = "<img height=\"100\" width=\"100\" src=\"" + picture + "\"/>";
+	document.getElementById("alumniPic").innerHTML = "<img height=\"300\" width=\"300\" src=\"" + picture + "\"/>";
 	document.getElementById("alumniName").innerHTML = name + "<br/>" + email;
 	document.getElementById("alumniDesc").innerHTML = selfDesc;
 	document.getElementById("alumniCompName").innerHTML = compName;
-	document.getElementById("alumniCompPic").innerHTML = "<img height=\"100\" width=\"100\" src=\"" + compLogo + "\"/>";
+	document.getElementById("alumniCompPic").innerHTML = "<img height=\"200\" width=\"200\" src=\"" + compLogo + "\"/>";
 	document.getElementById("alumniCompDesc").innerHTML = compDesc;
 }
 
