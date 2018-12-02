@@ -72,6 +72,9 @@ nav {
 	z-index: -2;
 }
 
+nav {
+	z-index: 2;
+}
 
 .navbar-color {
 	color:white;
@@ -95,6 +98,10 @@ nav {
 	color:black;
 }
 
+.navbar-toggler-icon {
+	color:white;
+}
+
 .dropdown-menu {
 	color: #FFFFFF;
 	background-color: #392A2C;
@@ -108,23 +115,28 @@ nav {
 }
 */
 
-.dropdown:hover .dropdown-menu {
-	position: absolute;
-	top: 45px;
-	display: block;
-}
 
-.navbar .contact a{
-	color: black;
+.dropdown:hover .dropdown-menu {
+	position:absolute;
+	display: block;
+	border-bottom-color: #EFD9C1;
 }
 
 .navbar a {
 	color: white;
 }
 
+
+
 /*Styling for the content area which is white*/
 #content {
 	background-color: white;
+}
+
+@media(max-width: 700px) {
+	nav.navbar {
+		background-color: lightgrey;
+	}
 }
 
 /*for the social media buttons*/

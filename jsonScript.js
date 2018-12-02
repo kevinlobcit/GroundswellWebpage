@@ -62,7 +62,7 @@ function recreateBase()
 						"<tbody id=\"tbody\">" +
                         "</tbody>" +
 					"</table>" +
-				"</div>"
+				"</div>";
 	document.getElementById("divTable").innerHTML = base;
 }
 
@@ -126,8 +126,8 @@ function createAlumniTableBase()
 					"</div>" +
 					"<div class=\"row\">" +
 						"<div class=\"col-md-12\" id=\"alumniCompDesc\">companyDescriptionHere</div>" +
-					"</div>"
-				"</div>"
+					"</div>" +
+				"</div>";
 	document.getElementById("divTable").innerHTML = base;
 }
 
