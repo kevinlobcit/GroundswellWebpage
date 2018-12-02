@@ -38,6 +38,7 @@ function createTable(jsonObj)
 		$("#tbody").append(row_data);
     }
 	applyHoverCSS();
+	page(jsonObj);
 }
 
 //Assist function for createTable() to make the table headers for searching
@@ -62,6 +63,8 @@ function recreateBase()
 						"<tbody id=\"tbody\">" +
                         "</tbody>" +
 					"</table>" +
+					"<div class=\"pagination\" id=\"pagination\">" +
+					"</div>" +
 				"</div>";
 	document.getElementById("divTable").innerHTML = base;
 }
@@ -234,6 +237,112 @@ function sortTable() {
     }
 }
 
+//paing
+
+function page(jsonObj){ 
+
+	$('table').each(function() {
+	var pagesu = 7;  //page number
+	var currentPage = 0;
+	var numPerPage = 10;  //number of list
+	var $table = $(this);    
+	var pagination = $("#pagination");
+
+	//length of all list
+	var numRows = jsonObj.length;
+
+	//Math.ceil
+	var numPages = Math.ceil(numRows / numPerPage);
+
+	if (numPages==0) return;
+	//div for page
+	var $pager = $('<div class="pager"></div>');
+	var nowp = currentPage;
+	var endp = nowp+10;
+
+	//reset page
+	$table.bind('repaginate', function() {
+	//hide page if list.length < page +1
+	$table.find('tbody tr').hide().slice(currentPage * numPerPage, (currentPage + 1) * numPerPage).show();
+	$("#pagination").html("");
+
+	if (numPages > 1) {     //more than one page
+
+		if (currentPage < 3 && numPages-currentPage >= 3) {   // if less than 3p
+			nowp = 0;     // 1to
+			endp = pagesu;    // 7
+		}
+		else{
+			nowp = currentPage -3;  // over 3 add move page num
+			endp = nowp+pagesu;   // up to 7
+			pi = 1;
+		}
+
+		if (numPages < endp) {   // less than 7
+			endp = numPages;   // up to last page num
+			nowp = numPages-pagesu;  // start page - last page
+		}
+
+		if (nowp < 1) {     
+			nowp = 0;     // start from page 1
+		}
+
+	}
+	else{       // less than 1 page
+		nowp = 0;      // create one page
+		endp = numPages;
+	}
+
+	// bigin
+	$('<span class="pageNum first"><<</span>').bind('click', {newPage: page},function(event) {
+	currentPage = 0;   
+	$table.trigger('repaginate');  
+	$($(".pageNum")[2]).addClass('active').siblings().removeClass('active');
+	}).appendTo(pagination).addClass('clickable');
+
+	// before
+	$('<span class="pageNum back"><-</span>').bind('click', {newPage: page},function(event) {
+	if(currentPage == 0) return; 
+
+	currentPage = currentPage-1;
+	$table.trigger('repaginate'); 
+	$($(".pageNum")[(currentPage-nowp)+2]).addClass('active').siblings().removeClass('active');
+	}).appendTo(pagination).addClass('clickable');
+
+	// [1,2,3,4,5,6,7,8]
+	for (var page = nowp ; page < endp; page++) {
+		$('<span class="pageNum"></span>').text(page + 1).bind('click', {newPage: page}, function(event) {
+		currentPage = event.data['newPage'];
+		$table.trigger('repaginate');
+		$($(".pageNum")[(currentPage-nowp)+2]).addClass('active').siblings().removeClass('active');
+		}).appendTo(pagination).addClass('clickable');
+	} 
+
+	// next
+	$('<span class="pageNum next">-></span>').bind('click', {newPage: page},function(event) {
+	if(currentPage == numPages-1) return;
+
+	currentPage = currentPage+1;
+	$table.trigger('repaginate'); 
+	$($(".pageNum")[(currentPage-nowp)+2]).addClass('active').siblings().removeClass('active');
+	}).appendTo(pagination).addClass('clickable');
+
+	// end
+	$('<span class="pageNum last">>></span>').bind('click', {newPage: page},function(event) {
+	currentPage = numPages-1;
+	$table.trigger('repaginate');
+	$($(".pageNum")[endp-nowp+1]).addClass('active').siblings().removeClass('active');
+	}).appendTo(pagination).addClass('clickable');
+
+	$($(".pageNum")[2]).addClass('active');
+	});
+
+	$pager.insertAfter($table).find('span.pageNum:first').next().next().addClass('active');   
+	$pager.appendTo(pagination);
+	$table.trigger('repaginate');
+	});
+
+}
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Creates the jsonObj to read from
