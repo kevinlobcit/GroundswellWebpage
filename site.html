@@ -16,51 +16,79 @@
 		<title>Groundswell Alumni Search</title>
 	</head>
 	<body>
-		<div id="bgColor">
-        <div id="titleArea">
 		
-            <nav class="navbar navbar-toggler navbar-expand-lg navbar-dark">
-                
-                <a class="navbar-brand" href="#">
-                <img src="images/logo.png" width="240" height="100" alt="">
-                </a>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Dropdown link
-                                </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-            
-			
-			
-			
-            <!--Displays the title of the page-->
-            <div class="container pageTitle">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <h1>Groundswell Alumni</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
+		<div id="bgColor">
+			<a href = "#"><img id="brandImage" src="images/logo.png"/></a>
+			<div id="titleArea">
+				
+				<!--Navigation bar code -->
+				<div>			
+					<nav class="navbar navbar-expand-lg float-right">
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse" id="navbarNavDropdown">
+							<ul class="navbar-nav">
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									ABOUT
+									</a>
+									<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+										<a class="dropdown-item" href="http://groundswellcommunity.ca/about">ABOUT</a>
+										<a class="dropdown-item" href="http://groundswellcommunity.ca/thewhy">THE WHY</a>
+										<a class="dropdown-item" href="http://groundswellcommunity.ca/communityblog">BLOG</a>
+										<a class="dropdown-item" href="http://groundswellcommunity.ca/media">IN THE MEDIA</a>
+									</div>
+								</li>
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									WHO WE ARE
+									</a>
+									<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+										<a class="dropdown-item" href="http://groundswellcommunity.ca/team">TEAM</a>
+										<a class="dropdown-item" href="cohort-8">COHORT 8</a>
+										<a class="dropdown-item" href="http://groundswellcommunity.ca/alumni">ALUMNI</a>
+										<a class="dropdown-item" href="http://groundswellcommunity.ca/partners">PARTNERS</a>
+									</div>
+								</li>
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									PROGRAMS
+									</a>
+									<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+										<a class="dropdown-item" href="http://groundswellcommunity.ca/explore">EXPLORE</a>
+										<a class="dropdown-item" href="http://groundswellcommunity.ca/build">BUILD</a>
+										<a class="dropdown-item" href="http://groundswellcommunity.ca/testmarket">TEST MARKET</a>
+										<a class="dropdown-item" href="http://groundswellcommunity.ca/cohort-blog">STUDENT BLOG</a>
+										<a class="dropdown-item" href="http://groundswellcommunity.ca/faq">FAQ</a>
+									</div>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="http://groundswellcommunity.ca/financing">FINANCING</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="http://groundswellcommunity.ca/events">GROUNDSWELL EVENTS</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="http://groundswellcommunity.ca/contact">CONTACT</a>
+								</li>
+							</ul>
+						</div>
+					</nav>	
+				</div>
+				
+				
+				
+				
+				<!--Displays the title of the page-->
+				<div class="container pageTitle">
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<h1>Groundswell Alumni</h1>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
         
 		<!--Page content begins here (white area) -->
@@ -74,7 +102,7 @@
                         </div>
                         
 						<!--script to convert utf-8 to unicode by mathiasbynens https://github.com/mathiasbynens/utf8.js-->
-						<script src="http://cdn.jsdelivr.net/gh/mathiasbynens/utf8.js/utf8.js"></script>
+						<script src="https://cdn.jsdelivr.net/gh/mathiasbynens/utf8.js/utf8.js"></script>
 						<!--Script that makes the tables -->
                         <script src="jsonScript.js"></script>
                         
