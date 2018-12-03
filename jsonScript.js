@@ -54,6 +54,11 @@ function createTableHeaders()
 //Used to bring back the base table code to switch back from displaying an alumni
 function recreateBase()
 {
+	var search = "<br/>" + 
+				"<input type=\"text\" id=\"searchTextBox\"/>" +
+				"<button type=\"button\" class=\"btn btn-warning\" style=\"color:white;margin-left:10px;\" onclick=\"findByName()\">Search</button>" +
+				"<br/>"; 
+	
 	var base = "<div style=\"padding-top:10px;padding-bottom:10px;\">" +
 					"<table class=\"table\" id=\"alumniTable\">" +
 						"<thead style=\"background-color:#F4B540;color:white;\">" +
@@ -66,14 +71,71 @@ function recreateBase()
 					"<div class=\"pagination\" id=\"pagination\">" +
 					"</div>" +
 				"</div>";
-	document.getElementById("divTable").innerHTML = base;
+	document.getElementById("divTable").innerHTML = search + base;
 }
+
+
+
+
 
 //Function to recreate the searching table with one function call
 function recreateTable(jsonObj)
 {
 	recreateBase();
 	createTable(jsonObj);
+	sortTable();
+}
+
+
+//Functions to produce table searched by name
+//////////////////////////////////////////////////////////////////////
+function findByName()
+{
+	var name = document.getElementById("searchTextBox").value;
+	getCreateJSONTableSearch(fileLocation, name);
+	document.getElementById("searchTextBox").value = name;
+	
+}
+
+function getCreateJSONTableSearch(fileLocation, name)
+{
+	var xmlhttp = new XMLHttpRequest();
+	//var url = "myTutorials.txt";
+
+	xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			var jsonObj = JSON.parse(this.responseText);
+			recreateSearchTable(jsonObj, name);
+		}
+	};
+	xmlhttp.open("GET", fileLocation, true);
+	xmlhttp.send();
+}
+
+function createSearchTable(jsonObj, name)
+{
+	createTableHeaders();
+    var row_data = "";
+    for(var i = 0; i < jsonObj.length; i++)
+    {
+		if(jsonObj[i].name.search(name) != -1)
+		{
+			row_data ='<tr id=\'' + jsonObj[i].company + '\'' + 'onclick=\'search(this.id)\' style=\'hover\'>' +
+			'<td>' + jsonObj[i].name + '</td>' +
+			'<td>' + jsonObj[i].company + '</td>' +
+			'<td>' + jsonObj[i].email + '</td>' +
+			'</tr>';
+			$("#tbody").append(row_data);
+		}
+    }
+	applyHoverCSS();
+	page(jsonObj);
+}
+
+function recreateSearchTable(jsonObj, name)
+{
+	recreateBase();
+	createSearchTable(jsonObj, name);
 	sortTable();
 }
 
