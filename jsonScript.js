@@ -84,6 +84,7 @@ function recreateTable(jsonObj)
 	recreateBase();
 	createTable(jsonObj);
 	sortTable();
+	page(jsonObj);
 }
 
 
