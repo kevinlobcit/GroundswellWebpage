@@ -232,3 +232,11 @@ footer {
     background: #F4B540;
 	color: white;
 }
+
+th {
+	cursor: auto;
+}
+
+tr {
+	cursor: pointer;
+}
