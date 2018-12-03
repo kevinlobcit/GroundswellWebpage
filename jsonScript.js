@@ -118,7 +118,7 @@ function createSearchTable(jsonObj, name)
     var row_data = "";
     for(var i = 0; i < jsonObj.length; i++)
     {
-		if(jsonObj[i].name.search(name) != -1)
+		if(jsonObj[i].name.toLowerCase().search(name.toLowerCase()) != -1)
 		{
 			row_data ='<tr id=\'' + jsonObj[i].company + '\'' + 'onclick=\'search(this.id)\' style=\'hover\'>' +
 			'<td>' + jsonObj[i].name + '</td>' +
