@@ -1,6 +1,9 @@
 # GroundswellWebpage
 Webpage for Groundswell
 
+Basic feature is mostly just clicking the row with the person you want to view their
+information and it will switch to a page showing an about theirself and their company
+
 Most likely you will need to rename site.html to index.html so you dont need to do http://websitename.com/groundswellwebpage/site.html
 
 The .json file is in the format of
