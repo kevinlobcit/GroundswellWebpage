@@ -84,6 +84,7 @@ function recreateTable(jsonObj)
 	recreateBase();
 	createTable(jsonObj);
 	sortTable();
+	page(jsonObj);
 }
 
 
@@ -137,6 +138,7 @@ function recreateSearchTable(jsonObj, name)
 	recreateBase();
 	createSearchTable(jsonObj, name);
 	sortTable();
+	page(jsonObj);
 }
 
 //Alumni view related functions
